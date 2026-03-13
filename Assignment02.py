@@ -1,4 +1,11 @@
-print("Student Performance Record")
+print("Student Performance Record System")
+
+
+def calculate_total(marks):
+    return sum(marks)
+
+def calculate_average(total, subjects):
+    return total / subjects
 
 def calculate_grade(avg):
     if avg >= 90:
@@ -12,6 +19,8 @@ def calculate_grade(avg):
     else:
         return "Fail"
 
+
+
 choice = "yes"
 
 while choice == "yes":
@@ -20,43 +29,41 @@ while choice == "yes":
     marks = []
 
     student["name"] = input("Enter Student Name: ")
-    print("Enter Student Marks:")
 
-    for i in range(1, 5):
+    print("Enter Marks of 4 Subjects:")
+
+    for i in range(1,5):
         mark = float(input(f"Enter Subject {i} Marks: "))
         marks.append(mark)
 
     student["marks"] = marks
-    student["total"] = sum(marks)
-    student["average"] = student["total"] / 4
+
+
+    student["total"] = calculate_total(marks)
+    student["average"] = calculate_average(student["total"],4)
     student["grade"] = calculate_grade(student["average"])
 
-  
-    with open("student_records.txt", "a") as file:
-        file.write("-----------------------------\n")
+
+    with open("student_records.txt","a") as file:
+
+        file.write("---------------\n")
         file.write(f"Name: {student['name']}\n")
-        file.write(f"Marks: {', '.join(map(str, student['marks']))}\n")
+        file.write(f"Marks: {student['marks']}\n")
         file.write(f"Total: {student['total']}\n")
-        file.write(f"Average: {round(student['average'], 2)}\n")
+        file.write(f"Average: {round(student['average'],2)}\n")
         file.write(f"Grade: {student['grade']}\n")
-        file.write("-----------------------------\n\n")
+        file.write("---------------\n\n")
 
     print("\nRecord Saved Successfully!\n")
 
-    choice = input("Do you want to enter another student record? (yes/no): ")
-    
-view_choice = input("Do you want to view all records? (yes/no): ")
-if view_choice == "yes":
-    with open("student_records.txt", "r") as file:
-        records = file.read()
-        print("\nStudent Records:\n")
-        print(records)
+    choice = input("Enter another student? (yes/no): ")
 
-del_choice = input("Do you want to delete all records? (yes/no): ")
-if del_choice == "yes":
-    with open("student_records.txt", "w") as file:
-        file.write("")
-    print("All records have been deleted.")
-    
 
-print("Thanks for using the system.")
+view = input("Do you want to view all records? (yes/no): ")
+
+if view == "yes":
+    with open("student_records.txt","r") as file:
+        print("\nStored Records:\n")
+        print(file.read())
+
+print("Program Finished.")
