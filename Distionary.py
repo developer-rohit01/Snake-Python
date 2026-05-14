@@ -3,9 +3,9 @@
 
 stud ={
     "Rohan": 85,
-    "Arjun": 55,
+    "Arun": 55,
     "Priya": 72,
-    "Moana": 98,
+    "Mona": 98,
     "Vikram": 45
 }
 
