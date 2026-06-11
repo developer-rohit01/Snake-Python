@@ -1,4 +1,4 @@
-print("Welcome to My Grading System")
+print("Welcome to My Grading Systemm")
 choice = 'yes'
 while choice == 'yes':
     student = input("Enter Student name: ")

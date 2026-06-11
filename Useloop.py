@@ -1,4 +1,4 @@
-#print 15 natural number and their sum using while loop and average of 15 natural number
+#print 15 natural number and their sum
 
 number = 1
 total_sum = 0
